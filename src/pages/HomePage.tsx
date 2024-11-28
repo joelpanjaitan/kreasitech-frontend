@@ -1,21 +1,28 @@
 import logo from "./logo.svg";
-
+import { Link } from "react-router-dom";
 function HomePage() {
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <p className="text-3xl pb-3">Warehouse management system</p>
+        <div className="flex gap-2">
+          <Link to={"/penerimaan"}>
+            <button className="text-base App-link bg-transparent border border-green-200 rounded-2xl px-4">
+              Penerimaan barang
+            </button>
+          </Link>
+          <Link to={"/pengeluaran"}>
+            <button className="text-base App-link bg-transparent border border-green-200 rounded-2xl px-4">
+              Pengeluaran barang
+            </button>
+          </Link>
+          <Link to={"/report"}>
+            <button className="text-base App-link bg-transparent border border-green-200 rounded-2xl px-4">
+              Inventory Report
+            </button>
+          </Link>
+        </div>
       </header>
     </div>
   );
