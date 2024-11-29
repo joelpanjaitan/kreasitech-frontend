@@ -1,4 +1,4 @@
-import PenerimaanBarangComponent from "../../components/PengeluaranBarang";
+import PenerimaanBarangComponent from "../components/PengeluaranBarang";
 function PengeluaranBarang() {
   const {
     handleChangeInput,

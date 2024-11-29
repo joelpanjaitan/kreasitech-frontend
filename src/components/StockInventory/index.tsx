@@ -1,5 +1,5 @@
 import connect from "../../connection/connectionData";
-import { Stocks } from "../../dto/FileInterface.dto";
+import { Stocks } from "../../../dto/FileInterface.dto";
 import { useState, useEffect } from "react";
 
 const StockInventoryComponent = () => {

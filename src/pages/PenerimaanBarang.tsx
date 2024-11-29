@@ -1,4 +1,4 @@
-import PenerimaanBarangComponent from "../../components/PenerimaanBarang";
+import PenerimaanBarangComponent from "../components/PenerimaanBarang";
 function PenerimaanBarang() {
   const {
     handleChangeInput,

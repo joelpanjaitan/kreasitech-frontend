@@ -1,26 +1,30 @@
-import { Warehouses, Suppliers, Products } from "../../dto/FileInterface.dto";
-import connect from "../../connection/connectionData";
+import {
+  Warehouses,
+  Suppliers,
+  Products,
+} from "../../../dto/FileInterface.dto";
 import { useState, useEffect } from "react";
+import connect from "../../connection/connectionData";
 
-const PenerimaanBarangComponent = () => {
-  const [warehouse, setWarehouse] = useState<Warehouses[]>([]);
+const PengeluaranBarangComponent = () => {
   const [suppliers, setSuppliers] = useState<Suppliers[]>([]);
   const [products, setProducts] = useState<Products[]>([]);
+  const [warehouse, setWarehouse] = useState<Warehouses[]>([]);
   const [trxData, setTrxData] = useState({
-    TrxInNo: "",
-    TrxInSuppIdf: 1,
-    TrxInDProductIdf: 0,
-    TrxInDQtyDus: 0,
-    TrxInDQtyPcs: 0,
+    TrxOutNo: "",
+    TrxOutSuppIdf: 1,
+    TrxOutDProductId: 1,
+    TrxOutDQtyDus: 0,
+    TrxOutDQtyPcs: 0,
     WhsIdf: 1,
-    TrxInDate: "",
-    TrxInNotes: "",
+    TrxOutDate: "",
+    TrxOutNotes: "",
   });
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const supplierData = await connect.get("/suppliers");
-        setSuppliers(supplierData.data);
+        const customerData = await connect.get("/suppliers");
+        setSuppliers(customerData.data);
       } catch (error) {
         console.error("Error to fetch suppliers:", error);
       }
@@ -40,8 +44,8 @@ const PenerimaanBarangComponent = () => {
     fetchData();
   }, []);
   const handleChangeInput = (data: any) => {
-    var today = new Date().toISOString().split("T")[0];
     const { name, value } = data.target;
+    var today = new Date().toISOString().split("T")[0];
     setTrxData((prevData) => ({
       ...prevData,
       [name]: value.replace(/^0+/, ""),
@@ -53,10 +57,12 @@ const PenerimaanBarangComponent = () => {
   const handleSubmit = (input: any) => {
     input.preventDefault();
     connect
-      .post("/trx-in", trxData)
+      .post("/trx-out", trxData)
       .then((response) => {
-        console.log("Items accepted:", response.data);
-        window.alert(`Items Inbound Success. ` + String(response.data.message));
+        console.log("Items released:", response.data);
+        window.alert(
+          "Items Outbound Success. " + String(response.data.message)
+        );
       })
       .catch((error) => {
         console.error("Error penerimaan barang:", error);
@@ -77,4 +83,4 @@ const PenerimaanBarangComponent = () => {
   };
 };
 
-export default PenerimaanBarangComponent;
+export default PengeluaranBarangComponent;

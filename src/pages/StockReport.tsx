@@ -1,4 +1,4 @@
-import StockInventoryComponent from "../../components/StockInventory/";
+import StockInventoryComponent from "../components/StockInventory";
 function StockReport() {
   const { stock } = StockInventoryComponent();
   return (
