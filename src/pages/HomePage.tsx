@@ -6,7 +6,7 @@ function HomePage() {
       <header className="App-header">
         <img
           src={"./kreasitech_logo.jpeg"}
-          className="App-logo p-10"
+          className="App-logo p-12"
           alt="logo"
         />
         <p className="text-3xl pb-3">Warehouse management system</p>
