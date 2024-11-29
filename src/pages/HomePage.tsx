@@ -4,7 +4,11 @@ function HomePage() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        <img
+          src={"./kreasitech_logo.jpeg"}
+          className="App-logo p-10"
+          alt="logo"
+        />
         <p className="text-3xl pb-3">Warehouse management system</p>
         <div className="flex gap-2">
           <Link to={"/penerimaan"}>
