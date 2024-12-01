@@ -9,7 +9,7 @@ function HomePage() {
           className="App-logo p-12"
           alt="logo"
         />
-        <p className="text-3xl pb-3">Warehouse management system</p>
+        <p className="text-3xl pb-3">Warehouse management system 123</p>
         <div className="flex gap-2">
           <Link to={"/penerimaan"}>
             <button className="text-base App-link bg-transparent border border-green-200 rounded-2xl px-4">
